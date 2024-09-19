@@ -1,7 +1,7 @@
 ﻿using LibraryManagementSystemWithAPI.Models;
 using System.Text.Json;
 
-namespace LibraryManagementSystemWithAPI.API
+namespace LibraryManagementSystemWithAPI.APIOperations
 {
     public class CategoryOperations
     {
@@ -26,10 +26,11 @@ namespace LibraryManagementSystemWithAPI.API
                     PropertyNameCaseInsensitive = true
                 });
 
-                return categories;
+                return categories ?? new List<Category>();
             }
-            catch (Exception ex)
+            catch
             {
+                MessageBox.Show("The Categories couldn't get from database!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
         }
@@ -48,10 +49,11 @@ namespace LibraryManagementSystemWithAPI.API
                     PropertyNameCaseInsensitive = true
                 });
 
-                return category;
+                return category ?? new Category();
             }
-            catch (System.Exception)
+            catch
             {
+                MessageBox.Show("The Category couldn't get from database!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
         }

@@ -1,10 +1,9 @@
 ﻿using System.Text;
 using System.Text.Json;
 using LibraryManagementSystemWithAPI.DTOs.BorrowedBook;
-using LibraryManagementSystemWithAPI.Mappers;
 using LibraryManagementSystemWithAPI.Models;
 
-namespace LibraryManagementSystemWithAPI.API
+namespace LibraryManagementSystemWithAPI.APIOperations
 {
     public class BorrowedBookOperations
     {
@@ -25,15 +24,16 @@ namespace LibraryManagementSystemWithAPI.API
 
                 string bookJson = await message.Content.ReadAsStringAsync();
                 //Console.WriteLine(bookJson);
-                var books = JsonSerializer.Deserialize<List<BorrowedBook>>(bookJson, new JsonSerializerOptions
+                var bbBooks = JsonSerializer.Deserialize<List<BorrowedBook>>(bookJson, new JsonSerializerOptions
                 {
                     PropertyNameCaseInsensitive = true
                 });
 
-                return books;
+                return bbBooks ?? new List<BorrowedBook>();
             }
-            catch (Exception ex)
+            catch
             {
+                MessageBox.Show("The Books couldn't get from database!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
         }
@@ -52,10 +52,11 @@ namespace LibraryManagementSystemWithAPI.API
                     PropertyNameCaseInsensitive = true
                 });
 
-                return book;
+                return book ?? new BorrowedBook();
             }
-            catch (System.Exception)
+            catch
             {
+                MessageBox.Show("The Book couldn't get from database!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
         }
@@ -68,7 +69,7 @@ namespace LibraryManagementSystemWithAPI.API
             }
             catch
             {
-                MessageBox.Show("The Book Couldn't Returned!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("The Book Couldn't Returned!!!\nDelete Issue", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
         }
@@ -77,6 +78,7 @@ namespace LibraryManagementSystemWithAPI.API
         {
             var json = JsonSerializer.Serialize(borrowedBookDto);
             var content = new StringContent(json, Encoding.UTF8, "application/json");
+            
             try
             {
                 var response = await _httpClient.PostAsync(Url, content);

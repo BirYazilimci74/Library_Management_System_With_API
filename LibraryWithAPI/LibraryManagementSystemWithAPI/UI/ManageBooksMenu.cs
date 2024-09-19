@@ -1,5 +1,6 @@
-﻿using LibraryManagementSystemWithAPI.API;
+﻿using LibraryManagementSystemWithAPI.APIOperations;
 using LibraryManagementSystemWithAPI.DTOs.Book;
+using LibraryManagementSystemWithAPI.FluentValidation;
 using LibraryManagementSystemWithAPI.Mappers;
 using LibraryManagementSystemWithAPI.Models;
 
@@ -38,7 +39,7 @@ namespace LibraryManagementSystemWithAPI.UI
         {
             try
             {
-                var categories = await Task.Run(() => _categoryOperations.GetAllAsync());
+                var categories = await _categoryOperations.GetAllAsync();
                 var categoryNames = categories.Select(c => c.Name).ToList();
                 comboBox.DataSource = categoryNames;
             }
@@ -54,10 +55,18 @@ namespace LibraryManagementSystemWithAPI.UI
         {
             tbxAddName.Clear();
             tbxAddAuthor.Clear();
-            numAddStock.Value = decimal.Zero;
             tbxUpdateName.Clear();
             tbxUpdateAuthor.Clear();
+            numAddStock.Value = decimal.Zero;
             numUpdateStock.Value = decimal.Zero;
+        }
+
+        private void ClearErrors()
+        {
+            lblAddNameError.Text = string.Empty;
+            lblAddAuthorError.Text = string.Empty;
+            lblUpdateNameError.Text = string.Empty;
+            lblUpdateAuthorError.Text = string.Empty;
         }
 
         private void dgvBooks_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -87,9 +96,9 @@ namespace LibraryManagementSystemWithAPI.UI
 
         private async void btnAdd_Click(object sender, EventArgs e)
         {
+            ClearErrors();
             await AddBookAsync();
             await LoadBooksAsync();
-            ClearTextBoxes();
         }
 
         private async Task<int> GetCategoryIdByName(string categoryName)
@@ -118,7 +127,34 @@ namespace LibraryManagementSystemWithAPI.UI
                 Stock = Convert.ToInt32(numAddStock.Value)
             };
 
+            BookValidator validator = new BookValidator();
+            var result = validator.Validate(newBook);
+
+            if (!result.IsValid)
+            {
+                foreach (var error in result.Errors)
+                {
+                    if (error.PropertyName == nameof(newBook.Name))
+                    {
+                        lblAddNameError.Text = error.ErrorMessage;
+                    }
+
+                    if (error.PropertyName == nameof(newBook.Author))
+                    {
+                        lblAddAuthorError.Text = error.ErrorMessage;
+                    }
+
+                    if (error.PropertyName == nameof(newBook.Stock))
+                    {
+                        lblAddStockError.Text = error.ErrorMessage;
+                    }
+                }
+
+                return;
+            }
+
             await _bookOperations.AddAsync(newBook.ToBookDTO());
+            ClearTextBoxes();
         }
 
         private async Task UpdateSelectedBookAsync()
@@ -144,14 +180,41 @@ namespace LibraryManagementSystemWithAPI.UI
                 Stock = Convert.ToInt32(numUpdateStock.Value)
             };
 
+            BookValidator validator = new BookValidator();
+            var result = validator.Validate(updatedBook.ToBook());
+
+            if (!result.IsValid)
+            {
+                foreach (var error in result.Errors)
+                {
+                    if (error.PropertyName == nameof(updatedBook.Name))
+                    {
+                        lblUpdateNameError.Text = error.ErrorMessage;
+                    }
+                    
+                    if (error.PropertyName == nameof(updatedBook.Author))
+                    {
+                        lblUpdateAuthorError.Text = error.ErrorMessage;
+                    }
+
+                    if (error.PropertyName == nameof(updatedBook.Stock))
+                    {
+                        lblUpdateStockError.Text = error.ErrorMessage;
+                    }
+                }
+
+                return;
+            }
+
             await _bookOperations.UpdateAsync(selectedBookId, updatedBook);
+            await LoadBooksAsync();
+            ClearTextBoxes();
         }
 
         private async void btnUpdate_Click(object sender, EventArgs e)
         {
+            ClearErrors();
             await UpdateSelectedBookAsync();
-            await LoadBooksAsync();
-            ClearTextBoxes();
         }
 
         private async Task SearchBooksByFilter(string searchString, Func<BookResponseDTO, string> filter)
@@ -174,5 +237,6 @@ namespace LibraryManagementSystemWithAPI.UI
         {
             await SearchBooksByFilter(tbxSearchAuthor.Text, b => b.Author);
         }
+
     }
 }

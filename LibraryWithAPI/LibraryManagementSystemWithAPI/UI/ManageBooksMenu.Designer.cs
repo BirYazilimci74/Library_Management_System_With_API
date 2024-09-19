@@ -38,6 +38,9 @@
             cmbAddCatagory = new ComboBox();
             numAddStock = new NumericUpDown();
             gbAdd = new GroupBox();
+            lblAddStockError = new Label();
+            lblAddNameError = new Label();
+            lblAddAuthorError = new Label();
             panel5 = new Panel();
             panel6 = new Panel();
             panel4 = new Panel();
@@ -50,6 +53,9 @@
             btnUpdate = new Button();
             numeUpdateStock = new NumericUpDown();
             gbUpdate = new GroupBox();
+            lblUpdateStockError = new Label();
+            lblUpdateAuthorError = new Label();
+            lblUpdateNameError = new Label();
             panel10 = new Panel();
             numUpdateStock = new NumericUpDown();
             lblUpdateCatagory = new Label();
@@ -110,7 +116,7 @@
             tbxAddName.Font = new Font("Microsoft Sans Serif", 7.8F);
             tbxAddName.Location = new Point(3, 6);
             tbxAddName.Name = "tbxAddName";
-            tbxAddName.Size = new Size(172, 15);
+            tbxAddName.Size = new Size(170, 15);
             tbxAddName.TabIndex = 4;
             // 
             // tbxAddAuthor
@@ -185,6 +191,9 @@
             // 
             // gbAdd
             // 
+            gbAdd.Controls.Add(lblAddStockError);
+            gbAdd.Controls.Add(lblAddNameError);
+            gbAdd.Controls.Add(lblAddAuthorError);
             gbAdd.Controls.Add(panel5);
             gbAdd.Controls.Add(panel6);
             gbAdd.Controls.Add(panel4);
@@ -199,6 +208,39 @@
             gbAdd.TabIndex = 14;
             gbAdd.TabStop = false;
             gbAdd.Text = "Add Book";
+            // 
+            // lblAddStockError
+            // 
+            lblAddStockError.AutoSize = true;
+            lblAddStockError.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
+            lblAddStockError.ForeColor = Color.Red;
+            lblAddStockError.Location = new Point(300, 168);
+            lblAddStockError.MaximumSize = new Size(120, 0);
+            lblAddStockError.Name = "lblAddStockError";
+            lblAddStockError.Size = new Size(0, 17);
+            lblAddStockError.TabIndex = 34;
+            // 
+            // lblAddNameError
+            // 
+            lblAddNameError.AutoSize = true;
+            lblAddNameError.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
+            lblAddNameError.ForeColor = Color.Red;
+            lblAddNameError.Location = new Point(300, 48);
+            lblAddNameError.MaximumSize = new Size(120, 0);
+            lblAddNameError.Name = "lblAddNameError";
+            lblAddNameError.Size = new Size(0, 17);
+            lblAddNameError.TabIndex = 33;
+            // 
+            // lblAddAuthorError
+            // 
+            lblAddAuthorError.AutoSize = true;
+            lblAddAuthorError.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
+            lblAddAuthorError.ForeColor = Color.Red;
+            lblAddAuthorError.Location = new Point(300, 88);
+            lblAddAuthorError.MaximumSize = new Size(120, 0);
+            lblAddAuthorError.Name = "lblAddAuthorError";
+            lblAddAuthorError.Size = new Size(0, 17);
+            lblAddAuthorError.TabIndex = 32;
             // 
             // panel5
             // 
@@ -315,6 +357,9 @@
             // 
             // gbUpdate
             // 
+            gbUpdate.Controls.Add(lblUpdateStockError);
+            gbUpdate.Controls.Add(lblUpdateAuthorError);
+            gbUpdate.Controls.Add(lblUpdateNameError);
             gbUpdate.Controls.Add(panel10);
             gbUpdate.Controls.Add(lblUpdateCatagory);
             gbUpdate.Controls.Add(panel9);
@@ -329,6 +374,39 @@
             gbUpdate.TabIndex = 18;
             gbUpdate.TabStop = false;
             gbUpdate.Text = "Update Book";
+            // 
+            // lblUpdateStockError
+            // 
+            lblUpdateStockError.AutoSize = true;
+            lblUpdateStockError.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
+            lblUpdateStockError.ForeColor = Color.Red;
+            lblUpdateStockError.Location = new Point(301, 169);
+            lblUpdateStockError.MaximumSize = new Size(120, 0);
+            lblUpdateStockError.Name = "lblUpdateStockError";
+            lblUpdateStockError.Size = new Size(0, 17);
+            lblUpdateStockError.TabIndex = 35;
+            // 
+            // lblUpdateAuthorError
+            // 
+            lblUpdateAuthorError.AutoSize = true;
+            lblUpdateAuthorError.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
+            lblUpdateAuthorError.ForeColor = Color.Red;
+            lblUpdateAuthorError.Location = new Point(301, 89);
+            lblUpdateAuthorError.MaximumSize = new Size(120, 0);
+            lblUpdateAuthorError.Name = "lblUpdateAuthorError";
+            lblUpdateAuthorError.Size = new Size(0, 17);
+            lblUpdateAuthorError.TabIndex = 35;
+            // 
+            // lblUpdateNameError
+            // 
+            lblUpdateNameError.AutoSize = true;
+            lblUpdateNameError.Font = new Font("Segoe UI", 7.8F, FontStyle.Bold | FontStyle.Italic, GraphicsUnit.Point, 162);
+            lblUpdateNameError.ForeColor = Color.Red;
+            lblUpdateNameError.Location = new Point(301, 49);
+            lblUpdateNameError.MaximumSize = new Size(120, 0);
+            lblUpdateNameError.Name = "lblUpdateNameError";
+            lblUpdateNameError.Size = new Size(0, 17);
+            lblUpdateNameError.TabIndex = 34;
             // 
             // panel10
             // 
@@ -589,5 +667,11 @@
         private Panel panel8;
         private Panel panel9;
         private Panel panel10;
+        private Label lblAddAuthorError;
+        private Label lblUpdateNameError;
+        private Label lblUpdateAuthorError;
+        private Label lblAddNameError;
+        private Label lblAddStockError;
+        private Label lblUpdateStockError;
     }
 }

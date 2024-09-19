@@ -4,7 +4,7 @@ using LibraryManagementSystemWithAPI.DTOs.Book;
 using LibraryManagementSystemWithAPI.Mappers;
 using LibraryManagementSystemWithAPI.Models;
 
-namespace LibraryManagementSystemWithAPI.API
+namespace LibraryManagementSystemWithAPI.APIOperations
 {
     public class BookOperations
     {
@@ -29,10 +29,11 @@ namespace LibraryManagementSystemWithAPI.API
                     PropertyNameCaseInsensitive = true
                 });
 
-                return books;
+                return books ?? new List<Book>();
             }
-            catch (Exception ex)
+            catch
             {
+                MessageBox.Show("The Books couldn't get from database!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
         }
@@ -51,10 +52,17 @@ namespace LibraryManagementSystemWithAPI.API
                     PropertyNameCaseInsensitive = true
                 });
 
-                return book;
+                return book ?? new Book()
+                {
+                    Name = "Unknown",
+                    Author = "Unknown",
+                    CategoryId = 4,
+                    Stock = 0
+                };
             }
-            catch (System.Exception)
+            catch
             {
+                MessageBox.Show("The Book couldn't get from database!!!", "Warning", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 throw;
             }
         }

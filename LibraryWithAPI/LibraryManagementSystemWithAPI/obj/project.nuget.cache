@@ -1,8 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "a5THKAYKDjKnyJnbYOjSWBX2ZdVwk+rHgjGXpOTOr403Y92aQfYKUJtEKnfwmjf2wvoSxhMwrPtduRu4COvk6g==",
+  "dgSpecHash": "S8TxDhR77zu0RmK0nQ+QU4Qm5iSYzKL6ls7hPxR3dffezGBoRI9xIKshfaBW1QgNDzUwcvIwnAEyNZfLds6DKQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\yahya\\Desktop\\CS_Projects\\Form Uygulamaları\\LibraryWithAPI\\LibraryManagementSystemWithAPI\\LibraryManagementSystemWithAPI.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "C:\\Users\\yahya\\Desktop\\Library_Management_System_With_API\\LibraryWithAPI\\LibraryManagementSystemWithAPI\\LibraryManagementSystemWithAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\yahya\\.nuget\\packages\\fluentvalidation\\11.10.0\\fluentvalidation.11.10.0.nupkg.sha512"
+  ],
   "logs": []
 }

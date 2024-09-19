@@ -1,4 +1,4 @@
-﻿using LibraryManagementSystemWithAPI.API;
+﻿using LibraryManagementSystemWithAPI.APIOperations;
 using LibraryManagementSystemWithAPI.DTOs.Book;
 using LibraryManagementSystemWithAPI.Mappers;
 
@@ -120,7 +120,7 @@ namespace LibraryManagementSystemWithAPI.UI
                         bb.BorrewedTime,
                         bb.ReturnTime
                     })
-                    .Where(book => book.Name.ToLower().Contains(searchString)).ToList();
+                    .Where(book => !String.IsNullOrEmpty(book.Name) && book.Name.ToLower().Contains(searchString)).ToList();
                 dgvBorrowedBooks.DataSource = bbBooksWithFilter;
                 return;
             }
