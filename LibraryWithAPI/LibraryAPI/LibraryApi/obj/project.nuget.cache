@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "gVxQVH9OpexNW7Jq2UMhNR6IKsx2MOTiv1EP5T911vv6LJzChJy4a0JEPxZ6MYsrU5VZlxhJAHs9NqAVQCjj4Q==",
+  "dgSpecHash": "FJrDVrIpUCrYfTPRbZ/S8tauDl02sCgog4K8f4jX9pkyV8lQLmtKxnjwYvFrZoMOXk0tkGCWVLcFuRsDuzIp1Q==",
   "success": true,
-  "projectFilePath": "C:\\Users\\yahya\\Desktop\\CS_Projects\\Form Uygulamaları\\LibraryWithAPI\\LibraryAPI\\LibraryApi\\LibraryApi.csproj",
+  "projectFilePath": "C:\\Users\\yahya\\Desktop\\Library_Management_System_With_API\\LibraryWithAPI\\LibraryAPI\\LibraryApi\\LibraryApi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\yahya\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\yahya\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",

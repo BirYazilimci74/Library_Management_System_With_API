@@ -26,7 +26,7 @@ namespace LibraryApi.Controllers
             return Ok(borrowedBooksDto);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetByIdAsync([FromRoute]int id)
         {
             var borrowedBook = await _borrowedBookRepository.GetByIdAsync(id);
@@ -38,7 +38,7 @@ namespace LibraryApi.Controllers
             return Ok(borrowedBook/*.ToBorrowedBookResponseDTO()*/);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteAsync([FromRoute]int id)
         {
             var borrowedBookToDelete = await _borrowedBookRepository.DeleteAsync(id);
@@ -62,7 +62,7 @@ namespace LibraryApi.Controllers
             
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateAsync([FromRoute]int id,[FromBody]BorrowedBookDTO borrowedBook)
         {
             await _borrowedBookRepository.UpdateAsync(id, borrowedBook);

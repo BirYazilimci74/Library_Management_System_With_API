@@ -25,7 +25,7 @@ namespace LibraryApi.Controllers
             return Ok(booksDto);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public async Task<IActionResult> GetByIdAsync([FromRoute]int id)
         {
             var book = await _bookRepository.GetByIdAsync(id);
@@ -37,7 +37,7 @@ namespace LibraryApi.Controllers
             return Ok(book/*.ToBookResponseDTO()*/);
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{id:int}")]
         public async Task<IActionResult> DeleteAsync([FromRoute]int id)
         {
             var bookToDelete = await _bookRepository.DeleteAsync(id);
@@ -60,7 +60,7 @@ namespace LibraryApi.Controllers
             return BadRequest("Book coulldn't added!!!");
         }
 
-        [HttpPut("{id}")]
+        [HttpPut("{id:int}")]
         public async Task<IActionResult> UpdateAsync([FromRoute]int id,[FromBody]BookDTO book)
         {
             await _bookRepository.UpdateAsync(id, book);

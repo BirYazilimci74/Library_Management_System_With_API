@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\yahya\\Desktop\\CS_Projects\\Form Uygulamaları\\LibraryWithAPI\\LibraryAPI\\LibraryApi\\LibraryApi.csproj": {}
+    "C:\\Users\\yahya\\Desktop\\Library_Management_System_With_API\\LibraryWithAPI\\LibraryAPI\\LibraryApi\\LibraryApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\yahya\\Desktop\\CS_Projects\\Form Uygulamaları\\LibraryWithAPI\\LibraryAPI\\LibraryApi\\LibraryApi.csproj": {
+    "C:\\Users\\yahya\\Desktop\\Library_Management_System_With_API\\LibraryWithAPI\\LibraryAPI\\LibraryApi\\LibraryApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\yahya\\Desktop\\CS_Projects\\Form Uygulamaları\\LibraryWithAPI\\LibraryAPI\\LibraryApi\\LibraryApi.csproj",
+        "projectUniqueName": "C:\\Users\\yahya\\Desktop\\Library_Management_System_With_API\\LibraryWithAPI\\LibraryAPI\\LibraryApi\\LibraryApi.csproj",
         "projectName": "LibraryApi",
-        "projectPath": "C:\\Users\\yahya\\Desktop\\CS_Projects\\Form Uygulamaları\\LibraryWithAPI\\LibraryAPI\\LibraryApi\\LibraryApi.csproj",
+        "projectPath": "C:\\Users\\yahya\\Desktop\\Library_Management_System_With_API\\LibraryWithAPI\\LibraryAPI\\LibraryApi\\LibraryApi.csproj",
         "packagesPath": "C:\\Users\\yahya\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\yahya\\Desktop\\CS_Projects\\Form Uygulamaları\\LibraryWithAPI\\LibraryAPI\\LibraryApi\\obj\\",
+        "outputPath": "C:\\Users\\yahya\\Desktop\\Library_Management_System_With_API\\LibraryWithAPI\\LibraryAPI\\LibraryApi\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

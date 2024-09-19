@@ -23,7 +23,7 @@ namespace LibraryApi.Controllers
             return Ok(catagories);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("{id:int}")]
         public IActionResult GetById(int id)
         {
             var catagory = _context.Categories.Find(id);
