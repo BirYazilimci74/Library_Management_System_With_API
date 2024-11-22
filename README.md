@@ -1,6 +1,6 @@
 # Library_Management_System_With_API
 
-This is a Library Management System project where I used **ASP.NET** and **Windows Forms**. The project is divided into two parts:
+This is a Library Management System project where I used **ASP.NET Core** and **Windows Forms**. The project is divided into two parts:
 
 - The **API scripts** are located in the `LibraryAPI` folder.
 - The **Windows Forms** project can be found in the `LibraryManagementSystemWithAPI` folder.
